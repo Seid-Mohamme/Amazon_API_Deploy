@@ -29,10 +29,7 @@ app.post("/payment/create", async (req, res) => {
     });
     console.log(paymentIntent);
     // res.status(201).json(paymentIntent)
-    res.status(201).json(
-        { clientScret: paymentIntent.client_secret 
-            
-        });
+    res.status(201).json({ clientSecret: paymentIntent.client_secret });
     // http://localhost:5000/payment/create?total=300  on thunder client
   } else {
     res.status(403).json({ message: "total must be greater than 0" });
@@ -46,4 +43,4 @@ app.listen(5000, (err) => {
   console.log("Amazon started at 5000, http://localhost:5000");
 });
 
-exports.api = onRequest(app);
+// exports.api = onRequest(app);
