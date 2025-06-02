@@ -1,5 +1,6 @@
-const { onRequest } = require("firebase-functions/v2/https");
-const logger = require("firebase-functions/logger");
+// const { onRequest } = require("firebase-functions/v2/https");
+// firebase-functions is used for only for Firebase Cloud Function
+// const logger = require("firebase-functions/logger");
 // After installing the express, cors, dotenv, stripe we add here to initialize
 const express = require("express");
 const cors = require("cors");
@@ -36,11 +37,12 @@ app.post("/payment/create", async (req, res) => {
   }
 });
 
-app.listen(5000, (err) => {
-  if (err) {
-    console.log("unable to start");
-  }
-  console.log("Amazon started at 5000, http://localhost:5000");
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, (err) => {
+  // if (err) {
+  //   console.log("unable to start");
+  // }
+  console.log(`Amazon started at 5000, http://localhost:${PORT}`);
 });
 
 // exports.api = onRequest(app);
